@@ -5,7 +5,7 @@ RegisterNetEvent('QBCore:Server:UpdateObject', function()
 	QBCore = exports['qb-core']:GetCoreObject() 
 end)
 
-RegisterNetEvent("bl-realtor:server:updateProperty", function(type, property_id, data)
+RegisterNetEvent("ps-realtor:server:updateProperty", function(type, property_id, data)
     -- Job check
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
@@ -17,7 +17,7 @@ RegisterNetEvent("bl-realtor:server:updateProperty", function(type, property_id,
     TriggerEvent("ps-housing:server:updateProperty", type, property_id, data)
 end)
 
-RegisterNetEvent("bl-realtor:server:registerProperty", function(data)
+RegisterNetEvent("ps-realtor:server:registerProperty", function(data)
     -- Job check
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
@@ -29,7 +29,7 @@ RegisterNetEvent("bl-realtor:server:registerProperty", function(data)
     TriggerEvent("ps-housing:server:registerProperty", data)
 end)
 
-RegisterNetEvent("bl-realtor:server:addTenantToApartment", function(data)
+RegisterNetEvent("ps-realtor:server:addTenantToApartment", function(data)
     -- Job check
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
@@ -41,7 +41,7 @@ RegisterNetEvent("bl-realtor:server:addTenantToApartment", function(data)
     TriggerEvent("ps-housing:server:addTenantToApartment", data)
 end)
 
-lib.callback.register("bl-realtor:server:getNames", function (source, data)
+lib.callback.register("ps-realtor:server:getNames", function (source, data)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     local PlayerData = Player.PlayerData
@@ -65,7 +65,7 @@ if Config.UseItem then
         local src = source
         local Player = QBCore.Functions.GetPlayer(src)
         if Player.Functions.GetItemByName(item.name) ~= nil then
-            TriggerClientEvent("bl-realtor:client:toggleUI", src)
+            TriggerClientEvent("ps-realtor:client:toggleUI", src)
         end
     end)
 end
